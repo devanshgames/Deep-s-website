@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DEEP'S – Your Second Skin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      background-color: #1a1a1a;
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(to right, #142249, #39779b);
+      padding: 20px;
+      text-align: center;
+      font-size: 32px;
+      color: rgb(94, 217, 221);
+      box-shadow: 0 0 15px #ff4757;
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #222;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: background 0.3s ease-in-out;
+    }
+
+    nav a {
+      margin: 0 20px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: rgb(94, 217, 221);
+    }
+
+    /* Mobile Menu */
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: rgb(255, 255, 255);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: url('https://i.imgur.com/nD6R1Pz.jpg') no-repeat center/cover;
+      color: rgb(255, 255, 255);
+      font-size: 28px;
+      font-weight: bold;
+      text-shadow: 2px 2px 10px rgba(12, 12, 12, 0.842);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease-in-out;
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease-in-out;
+    }
+
+    .product {
+      background: #333;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgb(94, 217, 221);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(71, 187, 255, 0.8);
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .product h3 {
+      margin-top: 10px;
+      color: rgb(255, 255, 255);
+    }
+
+    /* Call-to-Action Button (Style remains if needed elsewhere) */
+    .cta-button {
+      background: rgb(94, 217, 221);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .cta-button:hover {
+      background: rgb(94, 217, 221);
+      transform: scale(1.1);
+    }
+
+    /* Sections */
+    section {
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      color: rgb(94, 217, 221);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #222;
+      color: white;
+    }
+
+    /* Footer Note Style */
+    .footer-note {
+        font-size: 0.9em;
+        color: #aaa; /* Lighter gray for the note */
+        margin-top: 10px;
+    }
+
+
+    /* Back to Top Button */
+    #backToTop {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff4757;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+
+    #backToTop:hover {
+      opacity: 1;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .menu-toggle {
+        display: block;
+        text-align: center;
+      }
+
+      nav a {
+        display: none;
+        padding: 10px;
+      }
+
+      nav.active a {
+        display: block;
+      }
+
+      /* Adjust product grid columns for smaller screens if needed */
+      .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Example adjustment */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+   <pre> "Second Skin
+    First Love"</pre>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="menu-toggle">☰</div>
+    <a href="#collection">Collection</a>
+    <!-- Link to new section -->
+    <a href="#find-retailer">Find Retailers</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+Our lingerie helps you feel yourself at an affordable price!!
+  </section>
+
+  <!-- Collection Section -->
+  <section id="collection">
+    <h2>BEST SELLERS</h2>
+    <div class="product-grid">
+      <div class="product">
+        <img src="https://i.imgur.com/JKfuh5a.jpeg" alt="TSHIRT BRA">
+        <h3>T-SHIRT BRA</h3>
+        <!-- <button class="cta-button">Shop Now</button> --> <!-- Removed Button -->
+      </div>
+      <div class="product">
+        <img src="https://i.imgur.com/f7Zz0Va.jpeg" alt="TS  PAD">
+        <h3>T-S PADED</h3>
+        <!-- <button class="cta-button">Shop Now</button> --> <!-- Removed Button -->
+      </div>
+      <div class="product">
+        <img src="https://i.imgur.com/UhbfRdY.jpeg" alt="SIYA PAD">
+        <h3>SIYA lightly pad</h3>
+        <!-- <button class="cta-button">Shop Now</button> --> <!-- Removed Button -->
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW: Find Retailer Section -->
+  <section id="find-retailer">
+    <h2>Find Our Retailers</h2>
+    <p style="text-align:center; max-width:800px; margin:auto;">
+      Discover DEEP'S lingerie at your nearest retail store. Find comfort and style closer to you! Check with local hosiery and lingerie shops for availability.
+    </p>
+    <!-- Optional: Add a map embed or list of known retailers here later -->
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p style="text-align:center; max-width:800px; margin:auto;">At DEEP'S, we believe every woman deserves to feel confident and empowered. Our collection blends timeless elegance with modern designs, ensuring comfort and style.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Get in Touch</h2>
+    <p style="text-align:center; max-width:800px; margin:auto;">Have questions? Contact us at <strong>deepahosiery@gmail.com</strong></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 DEEP'S. All Rights Reserved.</p>
+    <!-- NEW: Footer Note -->
+    <p class="footer-note">*Currently operating in Bhopal only.</p>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" title="Back to Top">↑</button>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile Menu Toggle
+    document.querySelector('.menu-toggle').addEventListener('click', function () {
+      document.querySelector('nav').classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function() {
+        // Only remove active class if the nav is currently active (mobile view)
+        if (document.querySelector('nav').classList.contains('active')) {
+             document.querySelector('nav').classList.remove('active');
+        }
+      });
+    });
+
+    // Add smooth scrolling
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth'
+          });
+        } else {
+          console.warn('Smooth scroll target not found:', targetId); // Add warning for debugging
+        }
+      });
+    });
+
+
+    // Fade-in effect for hero and products grid
+    window.addEventListener('load', function () {
+      const hero = document.querySelector('.hero');
+      const productGrid = document.querySelector('.product-grid');
+
+      if (hero) {
+        hero.style.opacity = '1';
+        hero.style.transform = 'translateY(0)';
+      }
+
+      if (productGrid) {
+        // Initial state set in CSS, trigger animation
+        setTimeout(() => {
+           productGrid.style.opacity = '1';
+           productGrid.style.transform = 'translateY(0)';
+        }, 300); // Slightly shorter delay maybe
+      }
+    });
+
+    // Scroll animation for products (and potentially other elements)
+    window.addEventListener('scroll', function() {
+      const elementsToAnimate = document.querySelectorAll('.product'); // Can add other selectors like ', #find-retailer p' etc. if needed
+      const windowHeight = window.innerHeight;
+
+      elementsToAnimate.forEach(element => {
+        // Check if it's a product element to apply product-specific logic if any
+        // if (element.classList.contains('product')) {
+            const position = element.getBoundingClientRect();
+            // Trigger when the top of the element is visible within the viewport - 100px buffer
+            if (position.top < windowHeight - 100 && position.bottom >= 0) {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+            }
+            // Optional: Reset animation if scrolled back up
+            /* else if (position.top > windowHeight || position.bottom < 0) { // Reset if fully out of view
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+            } */
+        // }
+        // Add else if blocks for other types of elements if they need different animations
+      });
+    });
+
+
+    // Back to top button functionality
+    const backToTopButton = document.getElementById('backToTop');
+    if (backToTopButton) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+          backToTopButton.style.display = 'block';
+        } else {
+          backToTopButton.style.display = 'none';
+        }
+      });
+
+      backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+
+    // Ensure initial styles for animations are applied via CSS
+    // The JS mainly handles triggering the transition by changing styles
+
+  </script>
+
+</body>
+</html>
